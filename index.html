@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>India  Forest Monitoring Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #1f4e79;
+            color: white;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .controls {
+            margin: 20px;
+        }
+
+        select {
+            padding: 8px 12px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 6px;
+            border: 1px solid #999;
+        }
+
+        iframe {
+            width: 95%;
+            height: 650px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: white;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>India Forest Monitoring Dashboard</h1>
+
+<div class="controls">
+
+    <label><b>Select State:</b></label>
+    <select id="stateSelect">
+        <option value="">-- Select State --</option>
+        <option value="ap">Andhra Pradesh</option>
+        <option value="apd">Arunachal Pradesh</option>
+        <option value="as">Assam</option>
+        <option value="bh">Bihar</option>
+        <option value="cg">Chhattisgarh</option>
+        <option value="goa">Goa</option>
+        <option value="gj">Gujarat</option>
+        <option value="hn">Haryana</option>
+        <option value="hp">Himachal Pradesh</option>
+        <option value="jk">Jammu & Kashmir</option>
+        <option value="jdk">Jharkhand</option>
+        <option value="ka">Karnataka</option>
+        <option value="kl">Kerala</option>
+        <option value="mp">Madhya Pradesh</option>
+        <option value="mh">Maharashtra</option>
+        <option value="mn">Manipur</option>
+        <option value="ml">Meghalaya</option>
+        <option value="mz">Mizoram</option>
+        <option value="nl">Nagaland</option>
+        <option value="od">Odisha</option>
+        <option value="pb">Punjab</option>
+        <option value="rj">Rajasthan</option>
+        <option value="sk">Sikkim</option>
+        <option value="tn">Tamil Nadu</option>
+        <option value="tr">Tripura</option>
+        <option value="uk">Uttarakhand</option>
+        <option value="up">Uttar Pradesh</option>
+        <option value="wb">West Bengal</option>
+    </select>
+
+    <label><b>Select Map Type:</b></label>
+    <select id="mapType">
+        <option value="">-- Select Map --</option>
+        <option value="forest">Forest</option>
+        <option value="adaptive">Adaptive</option>
+    </select>
+
+</div>
+
+<iframe id="mapFrame"></iframe>
+
+<script>
+
+    const stateSelect = document.getElementById("stateSelect");
+    const mapType = document.getElementById("mapType");
+    const mapFrame = document.getElementById("mapFrame");
+
+    function loadMap() {
+        const state = stateSelect.value;
+        const type = mapType.value;
+
+        if (state && type) {
+            const filePath = state + "_" + type + ".html";
+            mapFrame.src = filePath;
+        }
+    }
+
+    stateSelect.addEventListener("change", loadMap);
+    mapType.addEventListener("change", loadMap);
+
+</script>
+
+</body>
+</html>
