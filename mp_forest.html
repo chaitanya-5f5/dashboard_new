@@ -24,7 +24,15 @@
                     left: 0.0%;
                     top: 0.0%;
                 }
-                .leaflet-container { font-size: 1rem; }
+                .leaflet-popup-content {
+    width: 300px !important;
+    max-height: 250px !important;
+    overflow-y: auto !important;
+}
+
+.leaflet-popup-content-wrapper {
+    width: 320px !important;
+}
             </style>
 
             <style>html, body {
@@ -288,7 +296,8 @@
         
     
         var popup_a1d05ad95d532a229415261b91bbb766 = L.popup({
-  "maxWidth": "100%",
+  maxWidth: 300,
+maxHeight: 250
 });
 
         
