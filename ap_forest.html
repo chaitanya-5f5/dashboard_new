@@ -17,15 +17,27 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_9169c0ccdd327a7ec66eebfcf7c404ca {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-                .leaflet-container { font-size: 1rem; }
-            </style>
+    #map_9169c0ccdd327a7ec66eebfcf7c404ca {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+    }
+
+    .leaflet-container { font-size: 1rem; }
+
+    /* 🔥 FIX POPUP SIZE */
+    .leaflet-popup-content {
+        width: 300px !important;
+        max-height: 250px !important;
+        overflow-y: auto !important;
+    }
+
+    .leaflet-popup-content-wrapper {
+        width: 320px !important;
+    }
+</style>
 
             <style>html, body {
                 width: 100%;
