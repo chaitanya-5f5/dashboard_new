@@ -24,7 +24,17 @@
                     left: 0.0%;
                     top: 0.0%;
                 }
-                .leaflet-container { font-size: 1rem; }
+                /* GLOBAL POPUP FIX — applies to all Leaflet popups */
+.leaflet-popup-content {
+    width: 300px !important;       /* fixed content width */
+    max-height: 250px !important;  /* max height */
+    overflow-y: auto !important;   /* scroll if content overflows */
+}
+
+.leaflet-popup-content-wrapper {
+    width: 320px !important;       /* popup box wrapper width */
+}
+</style>
             </style>
 
             <style>html, body {
@@ -288,7 +298,8 @@
         
     
         var popup_0b452edc6e4461fe0888e6dc1aa3154c = L.popup({
-  "maxWidth": "100%",
+  maxWidth: 300,
+maxHeight: 250
 });
 
         
