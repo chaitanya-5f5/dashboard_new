@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dba95cf40af99c9b354863366faedf85 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+position: fixed;
+bottom: 50px;
+left: 50px;
+width: 260px;
+background-color: white;
+border:2px solid grey;
+z-index:9999;
+font-size:14px;
+padding: 12px;
+">
+
+<b>Deforestation Causes</b><br><br>
+
+<span style="color:red;">●</span> Fire<br>
+<span style="color:orange;">●</span> Logging<br>
+<span style="color:green;">●</span> Agriculture<br>
+<span style="color:blue;">●</span> Urban / Other<br>
+
+</div>
+    
+<div style="
+position: fixed;
+top: 50px;
+right: 50px;
+width: 260px;
+background-color: white;
+border:2px solid black;
+z-index:9999;
+font-size:14px;
+padding: 12px;
+box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+">
+
+<b>Deforestation Summary</b><br><br>
+
+🔥 Fire: 0<br>
+🪓 Logging: 1<br>
+🌾 Agriculture: 4<br>
+🏙 Urban/Other: 2<br>
+
+</div>
+    
+            <div class="folium-map" id="map_dba95cf40af99c9b354863366faedf85" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dba95cf40af99c9b354863366faedf85 = L.map(
+                "map_dba95cf40af99c9b354863366faedf85",
+                {
+                    center: [27.0, 74.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_51e64ea4f21b6005053c1c5e3e3c8166 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_51e64ea4f21b6005053c1c5e3e3c8166.addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+    
+            var circle_marker_88d922732b722c6c07a9165260ab497a = L.circleMarker(
+                [21.07672235365428, 83.66414482882958],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+    
+            circle_marker_88d922732b722c6c07a9165260ab497a.bindTooltip(
+                `<div>
+                     Urban/Other
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_af9ac69f2581288f4bea8d8fa58c32e5 = L.circleMarker(
+                [19.77506350696509, 85.62426877877837],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+    
+            circle_marker_af9ac69f2581288f4bea8d8fa58c32e5.bindTooltip(
+                `<div>
+                     Agriculture
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_afcd85098cfd2c974d804e2040dadc0a = L.circleMarker(
+                [21.768425122426304, 86.44982052488422],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+    
+            circle_marker_afcd85098cfd2c974d804e2040dadc0a.bindTooltip(
+                `<div>
+                     Urban/Other
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8bfb02241296a3faafbada949b6c9964 = L.circleMarker(
+                [20.37873137789341, 86.72290837125655],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+    
+            circle_marker_8bfb02241296a3faafbada949b6c9964.bindTooltip(
+                `<div>
+                     Logging
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d490d86fec7a2a26fbb357b19d6094f9 = L.circleMarker(
+                [19.91789563714009, 85.16882292972977],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+    
+            circle_marker_d490d86fec7a2a26fbb357b19d6094f9.bindTooltip(
+                `<div>
+                     Agriculture
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c96e3334ca1c0115319450c1eeb17417 = L.circleMarker(
+                [19.82357253230754, 85.22631510791342],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+    
+            circle_marker_c96e3334ca1c0115319450c1eeb17417.bindTooltip(
+                `<div>
+                     Agriculture
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d317a0a923dbcddfaf932c350787651 = L.circleMarker(
+                [21.63277951452426, 86.33753111436927],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+    
+            circle_marker_5d317a0a923dbcddfaf932c350787651.bindTooltip(
+                `<div>
+                     Agriculture
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            tile_layer_51e64ea4f21b6005053c1c5e3e3c8166.addTo(map_dba95cf40af99c9b354863366faedf85);
+        
+</script>
+</html>
